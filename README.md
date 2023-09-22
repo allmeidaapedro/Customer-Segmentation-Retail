@@ -1,1 +1,1 @@
-# Retail Store Customer Segmentation
+# Retail Store Customer Segmentation and Profiling
