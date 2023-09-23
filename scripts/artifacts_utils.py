@@ -1,5 +1,5 @@
 '''
-This script aims to provide util functions for machine learning model artifacts obtaining.
+This script aims to provide util functions for obtaining machine learning model artifacts.
 '''
 
 '''
