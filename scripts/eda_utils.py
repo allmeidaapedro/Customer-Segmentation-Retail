@@ -25,7 +25,7 @@ filterwarnings('ignore')
 def sns_plots(data, features, histplot=True, countplot=False,     
               barplot=False, barplot_y=None, boxplot=False, 
               boxplot_x=None, outliers=False, kde=False, 
-              hue=None):
+              hue=None, style='whitegrid'):
     '''
     Generate Seaborn plots for visualization.
 
@@ -45,6 +45,7 @@ def sns_plots(data, features, histplot=True, countplot=False,
         outliers (bool, optional): Show outliers in box plots. Default is False.
         kde (bool, optional): Plot Kernel Density Estimate in histograms. Default is False.
         hue (str, optional): The name of the feature to use for color grouping. Default is None.
+        style (str, optional): Seaborn grid style. Default is 'whitegrid'.
 
     Returns:
         None
@@ -55,6 +56,9 @@ def sns_plots(data, features, histplot=True, countplot=False,
     '''
     
     try:
+        # Defining seaborn grid style.
+        sns.set_theme(style=style)
+
         # Getting num_features and num_rows and iterating over the sublot dimensions.
         num_features = len(features)
         num_rows = num_features // 3 + (num_features % 3 > 0)  
