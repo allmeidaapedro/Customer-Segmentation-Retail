@@ -110,7 +110,7 @@ def sns_plots(data, features, histplot=True, countplot=False,
         raise CustomException(e, sys)
 
 
-def check_outliers(data, features):
+def check_outliers(data, features, verbose=True):
     '''
     Check for outliers in the given dataset features.
 
@@ -120,6 +120,7 @@ def check_outliers(data, features):
     Args:
         data (DataFrame): The DataFrame containing the data to check for outliers.
         features (list): A list of feature names to check for outliers.
+        verbose (bool): Determining if the outliers per feature and counts will be printed. Default is True.
 
     Returns:
         tuple: A tuple containing three elements:
@@ -153,12 +154,13 @@ def check_outliers(data, features):
             outlier_counts[feature] = outlier_count
             total_outliers += outlier_count
         
-        print(f'There are {total_outliers} outliers in the dataset.')
-        print()
-        print(f'Number (percentage) of outliers per feature: ')
-        print()
-        for feature, count in outlier_counts.items():
-            print(f'{feature}: {count} ({round(count/len(data)*100, 2)})%')
+        if verbose:
+            print(f'There are {total_outliers} outliers in the dataset.')
+            print()
+            print(f'Number (percentage) of outliers per feature: ')
+            print()
+            for feature, count in outlier_counts.items():
+                print(f'{feature}: {count} ({round(count/len(data)*100, 2)})%')
 
         return outlier_indexes, outlier_counts, total_outliers
     

@@ -56,7 +56,7 @@ def feature_engineering(df):
 
         # Dropping outlier rows representing inconsistent information.
         numerical_features = df.select_dtypes('number').columns.to_list()
-        outlier_indexes, _, _ = check_outliers(data=df, features=numerical_features)
+        outlier_indexes, _, _ = check_outliers(data=df, features=numerical_features, verbose=False)
         to_drop_indexes = outlier_indexes['income'] + outlier_indexes['year_birth']
         df.drop(to_drop_indexes, inplace=True)
 
