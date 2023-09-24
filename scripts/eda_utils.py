@@ -25,7 +25,7 @@ filterwarnings('ignore')
 def sns_plots(data, features, histplot=True, countplot=False,     
               barplot=False, barplot_y=None, boxplot=False, 
               boxplot_x=None, outliers=False, kde=False, 
-              hue=None, style='whitegrid'):
+              hue=None, palette=None, style='whitegrid'):
     '''
     Generate Seaborn plots for visualization.
 
@@ -45,6 +45,7 @@ def sns_plots(data, features, histplot=True, countplot=False,
         outliers (bool, optional): Show outliers in box plots. Default is False.
         kde (bool, optional): Plot Kernel Density Estimate in histograms. Default is False.
         hue (str, optional): The name of the feature to use for color grouping. Default is None.
+        palette (str, optional): The color palette for seaborn plots. Default is None.
         style (str, optional): Seaborn grid style. Default is 'whitegrid'.
 
     Returns:
@@ -73,27 +74,27 @@ def sns_plots(data, features, histplot=True, countplot=False,
             
             if countplot:
                 # Plotting countplot and adding the counts at the top of each bar.
-                sns.countplot(data=data, x=feature, hue=hue, ax=ax)
+                sns.countplot(data=data, x=feature, hue=hue, ax=ax, palette=palette)
                 for container in ax.containers:
                     ax.bar_label(container)
 
             elif barplot:
                 # Plotting barplot and adding the averages at the top of each bar.
-                ax = sns.barplot(data=data, x=feature, y=barplot_y, hue=hue, ax=ax, ci=None)
+                ax = sns.barplot(data=data, x=feature, y=barplot_y, hue=hue, ax=ax, ci=None, palette=palette)
                 for container in ax.containers:
                     ax.bar_label(container)
 
             elif boxplot:
                 # Plotting multivariate boxplot.
-                sns.boxplot(data=data, x=boxplot_x, y=feature, showfliers=outliers, ax=ax)
+                sns.boxplot(data=data, x=boxplot_x, y=feature, showfliers=outliers, ax=ax, palette=palette)
 
             elif outliers:
                 # Plotting univariate boxplot.
-                sns.boxplot(data=data, x=feature, ax=ax)
+                sns.boxplot(data=data, x=feature, ax=ax, palette=palette)
 
             else:
                 # Plotting histplot.
-                sns.histplot(data=data, x=feature, hue=hue, kde=kde, ax=ax)
+                sns.histplot(data=data, x=feature, hue=hue, kde=kde, ax=ax, palette=palette)
 
             ax.set_title(feature)  
             ax.set_xlabel('')  
