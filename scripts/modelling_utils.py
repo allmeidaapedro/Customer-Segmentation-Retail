@@ -194,7 +194,7 @@ def silhouette_analysis(data, model, k_list=np.arange(2, 10, 1)):
                 # Plot the silhouette values for each cluster
                 ax[row - 1, column].fill_betweenx(np.arange(y_lower, y_upper), 0, ith_samples_silhouette_scores, color=color, alpha=1)
                 ax[row - 1, column].vlines(ss_score, -10, data.shape[0], linestyle='--', color='black', linewidth=2, label='Average Silhouette Score' if i == 0 else '')
-                ax[row - 1, column].set_title(f'Silhouette Score for {k} clusters = {ss_score:.4f}')
+                ax[row - 1, column].set_title(f'Average Silhouette Score for {k} Clusters = {ss_score:.4f}')
                 ax[row - 1, column].set_ylim([-10, len(data) + (k + 1) * 20])
             
                 x_tick = np.round(min(samples_silhouette_scores), 1)
