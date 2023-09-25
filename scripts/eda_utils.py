@@ -23,8 +23,8 @@ filterwarnings('ignore')
 
 
 def sns_plots(data, features, histplot=True, countplot=False,     
-              barplot=False, barplot_y=None, boxplot=False, 
-              boxplot_x=None, outliers=False, kde=False, 
+              barplot=False, barplot_y=None, various_barplots=False, barplot_x=None,
+              boxplot=False, boxplot_x=None, outliers=False, kde=False, 
               hue=None, palette=None, style='whitegrid'):
     '''
     Generate Seaborn plots for visualization.
@@ -39,7 +39,9 @@ def sns_plots(data, features, histplot=True, countplot=False,
         histplot (bool, optional): Generate histograms. Default is True.
         countplot (bool, optional): Generate count plots. Default is False.
         barplot (bool, optional): Generate bar plots. Default is False.
-        barplot_y (str, optional): The name of the feature for the y-axis in bar plots.
+        barplot_y (str, optional): The name of the feature for the y-axis in bar plots. Default is None.
+        various_barplots (bool, optional): Generate bar plots with different features on y-axis. Default is False.
+        barplot_x (bool, optional): The name of the feature for the x-axis in bar plots. Default is None.
         boxplot (bool, optional): Generate box plots. Default is False.
         boxplot_x (str, optional): The name of the feature for the x-axis in box plots.
         outliers (bool, optional): Show outliers in box plots. Default is False.
@@ -81,6 +83,12 @@ def sns_plots(data, features, histplot=True, countplot=False,
             elif barplot:
                 # Plotting barplot and adding the averages at the top of each bar.
                 ax = sns.barplot(data=data, x=feature, y=barplot_y, hue=hue, ax=ax, ci=None, palette=palette)
+                for container in ax.containers:
+                    ax.bar_label(container)
+            
+            elif various_barplots:
+                # Plotting barplot and adding the averages at the top of each bar.
+                ax = sns.barplot(data=data, x=barplot_x, y=feature, hue=hue, ax=ax, ci=None, palette=palette)
                 for container in ax.containers:
                     ax.bar_label(container)
 
