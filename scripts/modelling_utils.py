@@ -107,3 +107,119 @@ def feature_engineering(df):
 
     except Exception as e:
         raise CustomException(e, sys)
+    
+
+def silhouette_analysis(data, model, k_list=np.arange(2, 10, 1)):
+    '''
+    Perform silhouette analysis for a clustering model.
+
+    This function takes a dataset, a clustering model, and a range of cluster numbers to perform silhouette analysis.
+    It plots the silhouette scores for different cluster numbers, as well as individual silhouette plots for each cluster
+    configuration.
+
+    Parameters:
+        data (array-like): The input data for clustering.
+        model: The clustering model to evaluate.
+        k_list (array-like, optional): A range of cluster numbers to analyze. Default is np.arange(2, 10, 1).
+
+    Returns:
+        None
+
+    Example:
+        silhouette_analysis(data, KMeans(), k_list=[2, 3, 4, 5])
+
+    Raises:
+        CustomException: An exception that wraps other exceptions raised during the function execution.
+    
+    Note:
+        This function uses Matplotlib for plotting and assumes that it has been properly imported.
+
+    '''
+    try:
+        labels_at_k, silhouette_scores_at_k, silhouette_plots = [], [], []
+
+        fig, ax = plt.subplots(int(np.ceil(len(k_list) / 2)), 2, figsize=(20, 20))
+        fig.subplots_adjust(hspace=0.3)
+
+        min_x_tick = 0
+
+        for k in k_list:
+            row, column = divmod(k, 2)
+
+            # Set the x-axis and y-axis limits for each subplot
+            ax[row - 1, column].set_xlim([-0.1, 1])
+            ax[row - 1, column].set_ylim([0, len(data) + (k + 1) * 20])
+
+            # Fitting the model and obtaining silhouette scores for k.
+            model_name = type(model).__name__
+
+            if model_name == 'KMeans':
+                model = KMeans(init='k-means++', n_clusters=k, n_init=50, random_state=42)
+                model.fit(data)
+                labels = model.labels_
+
+            elif model_name == 'GaussianMixture':
+                model = GaussianMixture(n_components=k, n_init=25, random_state=42)
+                model.fit(data)
+                labels = model.predict(data)
+
+            else:
+                model = linkage(data, 'ward')
+                labels = fcluster(model, k, criterion='maxclust')
+
+            labels_at_k.append(k)
+            ss_score = silhouette_score(data, labels=labels, metric='euclidean')
+            silhouette_scores_at_k.append(ss_score)
+            samples_silhouette_scores = silhouette_samples(data, labels)
+
+            y_lower = 20
+
+            for i in range(k):
+
+                ith_samples_silhouette_scores = samples_silhouette_scores[labels == i]
+                ith_samples_silhouette_scores.sort()
+                ith_cluster_size = ith_samples_silhouette_scores.shape[0]
+                y_upper = y_lower + ith_cluster_size
+
+                cmap = plt.get_cmap('rainbow')
+                color = cmap(i / k)
+
+                # Plot the silhouette values for each cluster
+                ax[row - 1, column].fill_betweenx(np.arange(y_lower, y_upper), 0, ith_samples_silhouette_scores, color=color, alpha=1)
+                ax[row - 1, column].vlines(ss_score, -10, data.shape[0], linestyle='--', color='black', linewidth=2, label='Average Silhouette Score' if i == 0 else '')
+                ax[row - 1, column].set_title(f'Silhouette Score for {k} clusters = {ss_score:.4f}')
+                ax[row - 1, column].set_ylim([-10, len(data) + (k + 1) * 20])
+            
+                x_tick = np.round(min(samples_silhouette_scores), 1)
+
+                y_lower = y_upper + 20
+
+            if x_tick < min_x_tick:
+                min_x_tick = x_tick
+
+            # Store the silhouette plot for later use
+            silhouette_plots.append(ax[row - 1, column])
+
+
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.plot(k_list, silhouette_scores_at_k, 'k--', marker='o')
+        ax.vlines(k_list[np.argmax(silhouette_scores_at_k)], silhouette_scores_at_k[np.argmin(silhouette_scores_at_k)],
+                silhouette_scores_at_k[np.argmax(silhouette_scores_at_k)], linestyle='--', color='orange', label='Max Silhouette')
+
+        ax.set_ylabel('Silhouette Score')
+        ax.set_xlabel('Number of Clusters (K)')
+        ax.set_title(f'Silhouette Scores for {type(model).__name__}')
+        ax.legend()
+
+        # Plot the silhouette plots with adjusted ticks and labels
+        for silhouette_plot in silhouette_plots:
+            plt.sca(silhouette_plot)
+            plt.yticks(np.arange(0, len(data), int(len(data)/5)))
+
+            plt.xlim([min_x_tick, 1])
+            plt.xticks(np.arange(x_tick, 1.05, 0.1))
+
+        plt.show()
+
+    except Exception as e:
+        raise CustomException(e, sys)
