@@ -12,6 +12,13 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Modelling.
+from sklearn.decomposition import PCA
+from sklearn.metrics import silhouette_score, silhouette_samples
+from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
+from scipy.cluster.hierarchy import linkage, fcluster
+
 # Sys.
 import sys
 
