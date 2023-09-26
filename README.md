@@ -2,6 +2,36 @@
 
 <img src="reports/cseg.png" width=800px height=350px>
 
+# 1. Description
+- In this project, I performed an unsupervised learning clustering task using K-Means on unlabeled training data to segment and profile customers for a retail store. 
+- After segmenting the clients, a loyalty program called "Prosperous" was developed based on the profile of our best customers, the Prosperous ones. 
+- By utilizing techniques such as dimensionality reduction and silhouette score analysis for model comparison and cluster definition, I was able to effectively segment the clientele into five groups, creating distinct personas. 
+- Finally, a financial estimate was made. The loyalty program has the potential to increase the total store revenue by 9%, amounting to $125,228.55. Therefore, the project is worthwhile.
+- The project follows a real data science project workflow, encompassing tasks from data collection and exploratory data analysis (EDA) to final modeling. It includes features like exception handling, virtual environments, modular coding, code versioning (using Git and Github), and specifying project requirements. By structuring it this way, I've organized the entire project as a package, making it easily reproducible by others.
+
+# 2. Technologies and tools
+The technologies and tools used were Python (Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn), Jupyter Notebook, Git and Github (version control), machine learning clustering algorithms, statistics, Anaconda (terminal and virtual environment) and Visual Studio Code (project development environment).
+
+# 3. Project Structure
+Each folder/file content and purpose is described below:
+
+Artifacts: Store machine learning model artifacts, including the raw data, preprocessed data, the preprocessor, and the model.
+
+Notebooks:
+- eda.ipynb: This notebook contains the exploratory data analysis.
+- modelling.ipynb: This notebook covers the clustering machine learning modeling.
+- data: This folder contains the raw data to be used in notebooks.
+
+Reports: Store some images that are used for storytelling.
+
+Scripts: Store utility scripts used for EDA, modeling, exception handling, and artifacts retrieval. The files names are self explainable.
+- artifacts_utils.py
+- eda_utils.py
+- exception.py
+- modelling_utils.py
+
+Requirements, setup, gitignore, readme: The file setup.py allows me to build my entire project as a package, containing metadata and so on. Moreover, requirements.txt list all the dependencies needed for the project with the specific versions for reproducibility. Gitignore allows me to hide irrelevant information from commits and I am using readme.md for documentation and storytelling.
+
 
 
 
