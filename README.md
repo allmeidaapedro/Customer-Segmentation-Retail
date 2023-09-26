@@ -61,7 +61,7 @@ The following pipeline was used, based on CRISP-DM framework:
 
 # 6. RFM model
 
-<img src="reports/rfm.png" width=800px height=300px>
+<img src="reports/rfm.png" width=800px height=400px>
 
 I used the RFM model for clustering analysis. 
 
