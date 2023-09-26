@@ -128,7 +128,9 @@ Below, the <b>table summarizes</b> all the <b>information</b> about <b>each clus
 
 Some barplots with the average value on y-axis to illustrate the table information:
 
-<img src="reports/barplots_clusters.png">
+<img src="reports/income_monetary_frequency_cluster.png">
+
+<img src="reports/children_cmp_webvis_cluster.png">
 
 # 8. Loyalty program development
 - I selected the most valuable clients for the loyalty program, the <b>Prosperous customers</b>. The loyalty program was named "Prosperous" as well.
