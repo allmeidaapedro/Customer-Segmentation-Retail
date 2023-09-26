@@ -48,7 +48,7 @@ Considering everything mentioned above, the <b>project objectives</b> are:
 By doing this, the business problem will be resolved.
 
 # 5. Solution pipeline
-The following pipeline was used, based on CRISP-DM framework:
+The following <b>pipeline</b> was used, based on <b>CRISP-DM</b> framework:
 
 1. Define the business problem.
 2. Initial data understanding.
