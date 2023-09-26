@@ -128,7 +128,7 @@ Below, the <b>table summarizes</b> all the <b>information</b> about <b>each clus
 
 Some barplots with the average value on y-axis to illustrate the table information:
 
-<img src="reports/income_monetary_frequency_cluster.png">
+<img src="reports/income_monetary_frequency_cluster.png" width=800px height=450px>
 
 <img src="reports/children_cmp_webvis_cluster.png">
 
