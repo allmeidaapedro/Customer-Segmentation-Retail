@@ -1,6 +1,13 @@
 # Retail Store Customer Segmentation and Profiling
 
-<img src="reports/cseg.png">
+<img src="reports/cseg1.png">
+
+
+
+
+
+
+
 
 | cluster          | monetary | frequency | recency | income | avg_purchase_value | numdealspurchases | numwebpurchases | numcatalogpurchases | numstorepurchases | numwebvisitsmonth | total_accepted_cmp | children | age  | relationship_duration | count | percentage |
 |------------------|----------|-----------|---------|--------|--------------------|-------------------|-----------------|----------------------|-------------------|-------------------|--------------------|----------|------|-----------------------|-------|------------|
