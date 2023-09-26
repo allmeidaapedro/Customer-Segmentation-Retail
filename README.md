@@ -1,6 +1,6 @@
 # Retail Store Customer Segmentation and Profiling
 
-<img src="reports/cseg1.png">
+<img src="reports/cseg2.png">
 
 
 
