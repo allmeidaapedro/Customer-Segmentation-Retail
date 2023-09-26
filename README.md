@@ -75,7 +75,7 @@ By analyzing these three factors, businesses can categorize their customers into
 
 # 7. Clustering
 1. For preprocessing, since the education exhibit an ordinal relationship and marital status had just two categories, which would be encoded as 0/1, I chose OrdinalEncoder for encoding them. Moreover, for missing values imputing, I chose KNNImputer in order to avoid biased clustering results, such that the mean of the 5 nearest neighbors was assigned to income null observations. Finally, once clustering algorithms use distance calculations such as euclidean distance, meaning they are sensitive to features' scale, I applied StandardScaler to all of the variables. 
-2. I applied dimensionality reduction using PCA in order to reduce some noise in the data, which facilitated better clustering. I tested different numbers of principal components to use, and using 3 components was not only effective for segmentation but also led to higher silhouette scores and allowed cluster visualization in a 3D space.
+2. I applied dimensionality reduction using PCA in order to reduce some noise in the data, which facilitated better clustering. I tested different numbers of principal components to use and even without PCA, and using 3 components was not only effective for segmentation but also led to higher silhouette scores and allowed cluster visualization in a 3D space.
 3. I chose three clustering algorithms for performance comparison: K-Means, Gaussian Mixture Model, and Hierarchical Clustering, while analyzing the silhouette scores for a range of cluster numbers
 4. K-Means was the optimal choice, reaching the highest silhouette scores and the best segmentation. Therefore, I selected it for the final model training and customer segmentation. Furthermore, the silhouette plot indicated that with k=5, most of the instances extended beyond the dashed line to the right, and the clusters had similar sizes. Thus, I trained K-Means with five clusters.
 
@@ -87,27 +87,27 @@ By analyzing these three factors, businesses can categorize their customers into
 
 6. Next, I analyzed the clusters that were formed and assigned profiles to them based on their demographic information and purchasing behaviors. These five clusters were given the following names and summaries:
 
-<b>Prosperous Shoppers (cluster 0):</b>
+<b>Prosperous Shoppers:</b>
 - This cluster comprises customers with a relatively high average income, moderate frequency, and substantial monetary spending.
 - They prefer in-store and catalog purchases and tend to visit the web less frequently.
 - They are open to accepting campaign offers and typically have no children.
 
-<b>Web-Shrewd Shoppers (cluster 2):</b>
+<b>Web-Shrewd Shoppers:</b>
 - Customers in this cluster have a decent income, a good frequency of purchases, but lower monetary spending.
 - They prefer both store and web purchases, and they make a considerable number of web visits each month.
 - Some are receptive to campaigns, and many have one child.
 
-<b>Discount-Seeking Web Shoppers (cluster 1):</b>
+<b>Discount-Seeking Web Shoppers:</b>
 - This cluster consists of customers with a lower income, lower frequency of purchases, and lower monetary spending.
 - They prefer web purchases with discounts and frequently visit the website.
 - Most have one or more children, and they are not very likely to accept campaigns.
 
-<b>Web Enthusiasts with Frugal Habits (cluster 3):</b>
+<b>Web Enthusiasts with Frugal Habits:</b>
 - Customers in this cluster have a relatively low income, low frequency, and modest monetary spending.
 - They visit the website frequently but do not make many purchases.
 - Many have one or more children, and they are not particularly inclined to accept campaigns.
 
-<b>Young Budget Shoppers (cluster 4):</b>
+<b>Young Budget Shoppers:</b>
 - This cluster includes younger individuals with lower income, low frequency, and low monetary spending.
 - They visit the website often but make relatively small purchases.
 - Most have one child, and they are not receptive to campaigns.
@@ -122,3 +122,109 @@ Below, the table summarizes all the information about each cluster above.
 | Discount-Seeking | 454.81   | 1.81      | 48.05   | 49562.64 | 24.41              | 4.57              | 5.95            | 1.91                 | 6.01              | 6.71              | 0.20               | 1.39     | 56.78 | 10.23                 | 357   | 16.02      |
 | Web Enthusiasts | 110.00   | 0.87      | 49.72   | 41588.22 | 11.59              | 1.81              | 2.05            | 0.69                 | 3.62              | 5.22              | 0.07               | 1.41     | 57.74 | 9.38                  | 465   | 20.87      |
 | Young Budget     | 77.63    | 0.70      | 48.24   | 28574.70 | 10.37              | 1.86              | 1.94            | 0.42                 | 2.90              | 7.24              | 0.08               | 1.02     | 46.20 | 10.22                 | 529   | 23.74      |
+
+
+# 8. Loyalty program development
+- I selected the most valuable clients for the loyalty program, the Prosperous customers. The loyalty program was named "Prosperous" as well.
+- To boost revenue after implementing the loyalty program, strategies such as offering discounts, exclusive products, and targeted marketing campaigns can be employed.
+
+Who is eligible to participate in the Prosperous loyalty program?
+- Prosperous customers, representing 21.4% of my total clientele.
+
+Which are the main characteristics of this group?
+- Customers with a relatively high average income, moderate frequency, and substantial monetary spending.
+- They prefer in-store and catalog purchases and tend to visit the web less frequently.
+- They are open to accepting campaign offers and typically have no children.
+- The Prosperous cluster generates approximately 51% of the total customer's revenue.
+- The Prosperous cluster buys 1.38 times more frequent compared to the total of customers.
+- The Prosperous cluster represents the second highest percentage of the total customers base. Particularly, it includes 21.4% of the clientele.
+- Prosperous customers accept, on average, 2.67 times more campaigns compared to the total customer base.
+
+# 9. Financial results
+- I estimated concrete financial results that our loyalty program, developed based on customer segmentation clustering modeling, could yield.
+- I supposed that with targeted marketing campaigns, personalized products and special offerings, the retail store can increase the Prosperous customers revenue in 15%. 
+- Given the similarity between Web-Shrewd customers and Prosperous ones, I assumed a 30% conversion rate for this group to become Prosperous.
+- Considering that the other groups differ more from Prosperous customers, I assumed the following conversion rates to Prosperous: Discount-Seeking Web Shoppers = 10%; Web Enthusiasts with Frugal Habits = 8%; Young Budget Shoppers = 5%.
+
+Financial results:
+- Total revenue before Prosperous loyalty program: $1,348,072.00.
+- Total revenue after Prosperous loyalty program: $1,473,300.55
+- Revenue increased by 9.00%
+- Revenue increased in $125,228.55.
+
+Wow! The project is indeed worthwile. These results illustrate the power of machine learning and data science.
+
+# 10. Run this project on your local machine
+To run the notebooks locally, make sure to have installed:
+
+1. Python 3.11.4
+2. pip (Python package manager)
+3. Git (Version control tool)
+4. Jupyter (Run the notebooks)
+
+Once you have this installed, open a terminal on your local machine and run the following commands:
+
+1. Clone the repository:
+<pre>
+git clone https://github.com/allmeidaapedro/Customer-Segmentation-Retail.git
+</pre>
+
+2. Navigate to the cloned repository directory:
+<pre>
+cd Customer-Segmentation-Retail
+</pre>
+
+3. Create a virtual environment:
+<pre>
+python -m venv venv
+</pre>
+
+4. Activate the Virtual Environment:
+
+Activate the virtual environment used to isolate the project dependencies.
+<pre>
+source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
+</pre>
+
+5. Install Dependencies:
+
+Use pip to install the required dependencies listed in the requirements.txt file.
+<pre>
+pip install -r requirements.txt
+</pre>
+
+6. Start Jupyter Notebook:
+
+To start Jupyter Notebook, run the following command:
+<pre>
+jupyter notebook
+</pre>
+This will open a new tab or window in your web browser with the Jupyter Notebook interface.
+
+7. Navigate to the 'notebooks' folder:
+
+Use the Jupyter Notebook interface to navigate to the 'notebooks' folder within your project directory.
+
+8. Open and Run Notebooks:
+
+You should see the 'eda.ipynb' and 'modelling.ipynb' notebooks listed. Click on the notebook you want to run to open it. Once it's open, you can run individual cells or the entire notebook by clicking the "Run" button.
+
+9. Deactivate the Virtual Environment (Optional):
+
+When you're done working with the notebooks and want to exit the virtual environment, you can deactivate it using the following command:
+
+<pre>
+deactivate
+</pre>
+
+# 11. Dataset link
+The dataset was collected from kaggle.
+
+Link: https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis
+
+# 12. Contact me
+Linkedin: https://www.linkedin.com/in/pedro-henrique-almeida-oliveira-77b44b237/
+
+Github: https://github.com/allmeidaapedro
+
+Gmail: pedrooalmeida.net@gmail.com
