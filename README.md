@@ -75,10 +75,15 @@ By analyzing these three factors, businesses can categorize their customers into
 
 # 7. Clustering
 1. For preprocessing, since the education exhibit an ordinal relationship and marital status had just two categories, which would be encoded as 0/1, I chose OrdinalEncoder for encoding them. Moreover, for missing values imputing, I chose KNNImputer in order to avoid biased clustering results, such that the mean of the 5 nearest neighbors was assigned to income null observations. Finally, once clustering algorithms use distance calculations such as euclidean distance, meaning they are sensitive to features' scale, I applied StandardScaler to all of the variables. 
-2. I chose three clustering algorithms for performance comparison, K-Means, Gaussian Mixtures Model and Hierarchical Clustering, analyzing the silhouette scores for a set of number of clusters. 
-3. K-Means was the best choice, reaching the highest silhouette scores and the best segmentation. Therefore, I selected it for the final model training and customer segmentation. Furthermore, the silhouette plot indicated that with k=5, most of the instances extended beyond the dashed line to the right, and the clusters had similar sizes. Thus, I trained K-Means with five clusters.
+2. I applied dimensionality reduction using PCA in order to reduce some noise in the data, which facilitated better clustering. I tested different numbers of principal components to use, and using 3 components was not only effective for segmentation but also led to higher silhouette scores and allowed cluster visualization in a 3D space.
+3. I chose three clustering algorithms for performance comparison: K-Means, Gaussian Mixture Model, and Hierarchical Clustering, while analyzing the silhouette scores for a range of cluster numbers
+4. K-Means was the optimal choice, reaching the highest silhouette scores and the best segmentation. Therefore, I selected it for the final model training and customer segmentation. Furthermore, the silhouette plot indicated that with k=5, most of the instances extended beyond the dashed line to the right, and the clusters had similar sizes. Thus, I trained K-Means with five clusters.
 
 <img src="reports/sihouette_plot_kmeans.png">
+
+5. After training K-Means with five clusters, I created a 3D plot to visualize the clusters. The plot demonstrates a clear separation between the different groups formed, further affirming the quality of the K-Means clustering.
+
+<img src="reports/clusters_plot.png">
 
 
 | cluster          | monetary | frequency | recency | income | avg_purchase_value | numdealspurchases | numwebpurchases | numcatalogpurchases | numstorepurchases | numwebvisitsmonth | total_accepted_cmp | children | age  | relationship_duration | count | percentage |
