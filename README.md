@@ -85,6 +85,35 @@ By analyzing these three factors, businesses can categorize their customers into
 
 <img src="reports/clusters_plot.png">
 
+6. Next, I analyzed the clusters that were formed and assigned profiles to them based on their demographic information and purchasing behaviors. These five clusters were given the following names and summaries:
+
+<b>Prosperous Shoppers (cluster 0):</b>
+- This cluster comprises customers with a relatively high average income, moderate frequency, and substantial monetary spending.
+- They prefer in-store and catalog purchases and tend to visit the web less frequently.
+- They are open to accepting campaign offers and typically have no children.
+
+<b>Web-Shrewd Shoppers (cluster 2):</b>
+- Customers in this cluster have a decent income, a good frequency of purchases, but lower monetary spending.
+- They prefer both store and web purchases, and they make a considerable number of web visits each month.
+- Some are receptive to campaigns, and many have one child.
+
+<b>Discount-Seeking Web Shoppers (cluster 1):</b>
+- This cluster consists of customers with a lower income, lower frequency of purchases, and lower monetary spending.
+- They prefer web purchases with discounts and frequently visit the website.
+- Most have one or more children, and they are not very likely to accept campaigns.
+
+<b>Web Enthusiasts with Frugal Habits (cluster 3):</b>
+- Customers in this cluster have a relatively low income, low frequency, and modest monetary spending.
+- They visit the website frequently but do not make many purchases.
+- Many have one or more children, and they are not particularly inclined to accept campaigns.
+
+<b>Young Budget Shoppers (cluster 4):</b>
+- This cluster includes younger individuals with lower income, low frequency, and low monetary spending.
+- They visit the website often but make relatively small purchases.
+- Most have one child, and they are not receptive to campaigns.
+
+Below, the table summarizes all the information about each cluster above.
+
 
 | cluster          | monetary | frequency | recency | income | avg_purchase_value | numdealspurchases | numwebpurchases | numcatalogpurchases | numstorepurchases | numwebvisitsmonth | total_accepted_cmp | children | age  | relationship_duration | count | percentage |
 |------------------|----------|-----------|---------|--------|--------------------|-------------------|-----------------|----------------------|-------------------|-------------------|--------------------|----------|------|-----------------------|-------|------------|
