@@ -1,3 +1,3 @@
 # Retail Store Customer Segmentation and Profiling
 
-[Download Data](clusters.csv)
+[Download Data](D:\MLProjects\CustomerSegmentationRetail\reports\clusters.csv)
