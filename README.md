@@ -1,6 +1,6 @@
 # Retail Store Customer Segmentation and Profiling
 
-<img src="reports/cseg.png" width=800px height=250px>
+<img src="reports/cseg.png" width=800px height=350px>
 
 
 
