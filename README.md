@@ -73,8 +73,12 @@ The RFM model is a marketing and customer segmentation technique used to analyze
 
 By analyzing these three factors, businesses can categorize their customers into different segments, such as "high-value and highly engaged" or "low-value and inactive." This segmentation allows companies to tailor their marketing strategies and offers to each group more effectively, ultimately improving customer retention and maximizing revenue.
 
+# 7. Clustering
+1. For preprocessing, since the education exhibit an ordinal relationship and marital status had just two categories, which would be encoded as 0/1, I chose OrdinalEncoder for encoding them. Moreover, for missing values imputing, I chose KNNImputer in order to avoid biased clustering results, such that the mean of the 5 nearest neighbors was assigned to income null observations. Finally, once clustering algorithms use distance calculations such as euclidean distance, meaning they are sensitive to features' scale, I applied StandardScaler to all of the variables. 
+2. I chose three clustering algorithms for performance comparison, K-Means, Gaussian Mixtures Model and Hierarchical Clustering, analyzing the silhouette scores for a set of number of clusters. 
+3. K-Means was the best choice, reaching the highest silhouette scores and the best segmentation. Therefore, I selected it for the final model training and customer segmentation. Furthermore, the silhouette plot indicated that with k=5, most of the instances extended beyond the dashed line to the right, and the clusters had similar sizes. Thus, I trained K-Means with five clusters.
 
-
+<img src="reports/sihouette_plot_kmeans.png">
 
 
 | cluster          | monetary | frequency | recency | income | avg_purchase_value | numdealspurchases | numwebpurchases | numcatalogpurchases | numstorepurchases | numwebvisitsmonth | total_accepted_cmp | children | age  | relationship_duration | count | percentage |
