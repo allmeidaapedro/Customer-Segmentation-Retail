@@ -61,7 +61,7 @@ The following <b>pipeline</b> was used, based on <b>CRISP-DM</b> framework:
 
 # 6. RFM model
 
-<img src="reports/rfm.png" width=800px height=500px>
+<img src="reports/rfm.png">
 
 I used the <b>RFM model</b> for clustering analysis. 
 
@@ -128,7 +128,7 @@ Below, the <b>table summarizes</b> all the <b>information</b> about <b>each clus
 
 Some barplots with the average value on y-axis to illustrate the table information:
 
-<img src="reports/income_monetary_frequency_cluster.png" width=800px height=450px>
+<img src="reports/income_monetary_frequency_cluster.png">
 
 <img src="reports/children_cmp_webvis_cluster.png">
 
