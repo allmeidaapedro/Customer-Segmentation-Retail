@@ -126,7 +126,7 @@ Below, the <b>table summarizes</b> all the <b>information</b> about <b>each clus
 | Young Budget     | 77.63    | 0.70      | 48.24   | 28574.70 | 10.37              | 1.86              | 1.94            | 0.42                 | 2.90              | 7.24              | 0.08               | 1.02     | 46.20 | 10.22                 | 529   | 23.74      |
 
 
-Some barplots with the average value on y-axis to illustrate the table information:
+Some <b>barplots</b> to <b>illustrate the table information:</b>
 
 <img src="reports/income_monetary_frequency_cluster.png">
 
