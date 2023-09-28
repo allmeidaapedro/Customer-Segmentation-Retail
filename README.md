@@ -132,6 +132,10 @@ Some <b>barplots</b> to <b>illustrate the table information:</b>
 
 <img src="reports/children_cmp_webvis_cluster.png">
 
+Some <b>scatterplots</b> to <b>illustrate the clusters separation</b> in different income, monetary, frequency and average purchase values:
+
+<img src="reports/scatterplot_clusters.png">
+
 # 8. Loyalty program development
 - I selected the most valuable clients for the loyalty program, the <b>Prosperous customers</b>. The loyalty program was named "Prosperous" as well.
 - To <b>boost revenue</b> after implementing the loyalty program, strategies such as offering discounts, exclusive products, and targeted marketing campaigns can be employed.
