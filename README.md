@@ -235,7 +235,7 @@ The dataset was collected from <b>kaggle.</b>
 Link: https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis
 
 # 12. Contact me
-<b>Linkedin:</b> https://www.linkedin.com/in/pedro-henrique-almeida-oliveira-77b44b237/
+<b>Linkedin:</b> https://www.linkedin.com/in/pedro-almeida-ds/
 
 <b>Github:</b> https://github.com/allmeidaapedro
 
